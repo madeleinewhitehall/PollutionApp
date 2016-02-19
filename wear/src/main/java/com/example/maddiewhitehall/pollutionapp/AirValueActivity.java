@@ -29,15 +29,6 @@ public class AirValueActivity extends Activity {
             public void onLayoutInflated(WatchViewStub stub) {
                 mTextView = (TextView) stub.findViewById(R.id.text);
 
-                buttonBack = (ImageButton) stub.findViewById(R.id.backButton);
-                buttonBack.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        intentBack = new Intent(AirValueActivity.this, MainActivityWear.class);
-                        startActivity(intentBack);
-                        //finish();
-                    }
-                });
 
 
                 scale[0][0] = (RelativeLayout) stub.findViewById(R.id.Grid1a);

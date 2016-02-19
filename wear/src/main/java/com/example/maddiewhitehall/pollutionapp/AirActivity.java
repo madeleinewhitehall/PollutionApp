@@ -31,17 +31,6 @@ public class AirActivity extends Activity {
             public void onLayoutInflated(WatchViewStub stub) {
                 mTextView = (TextView) stub.findViewById(R.id.text);
 
-                buttonBackOne = (ImageButton) stub.findViewById(R.id.backButton);
-                buttonBackOne.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        //System.out.print("working");
-                        intentBack = new Intent(AirActivity.this, MainActivityWear.class);
-                        startActivity(intentBack);
-                        //finish();
-                    }
-                });
-
                 /*buttonBackTwo = (ImageButton) stub.findViewById(R.id.backButtonScale);
                 buttonBackTwo.setOnClickListener(new View.OnClickListener() {
                     @Override
@@ -72,25 +61,11 @@ public class AirActivity extends Activity {
                 cloudView.setOnClickListener(new View.OnClickListener() {
                     @Override
 
-                    public void onClick (View v) {
-                       if(airRun==0){
-                           //intentValue = new Intent(AirActivity.this, AirValueActivity.class);
-                           setContentView(R.layout.activity_air_value2);
-                           airRun=1;
-                       }
-                       else{
-                           //intentAir = new Intent(AirActivity.this,)
-                           setContentView(R.layout.activity_air);
-                           airRun=0;
-                       }
-                    }
-
-
-                    /*public void onClick (View v) {
+                   public void onClick (View v) {
                         intentValue = new Intent(AirActivity.this, AirValueActivity.class);
                         startActivity(intentValue);
                         //finish();
-                    }*/
+                    }
                 });
             }
         });

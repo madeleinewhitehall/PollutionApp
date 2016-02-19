@@ -23,17 +23,6 @@ public class TrafficActivity extends Activity {
             @Override
             public void onLayoutInflated(WatchViewStub stub) {
                 mTextView = (TextView) stub.findViewById(R.id.text);
-
-                button = (ImageButton) stub.findViewById(R.id.backButton);
-
-                button.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        intent = new Intent(TrafficActivity.this, MainActivityWear.class);
-                        startActivity(intent);
-                        //finish();
-                    }
-                });
             }
         });
     }
