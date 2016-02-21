@@ -15,12 +15,15 @@ public class AirValueActivity extends Activity {
     private TextView mTextView;
     private ImageButton buttonBack, cloudView;
     private Intent intentBack, intent;
+    public static Activity level;
     RelativeLayout a, b, c, d, e, f, g, h, i, j;
-    RelativeLayout[][] scale = new RelativeLayout[3][5];
+    RelativeLayout[][] scale = new RelativeLayout[4][5];
     int levelScale = 0;
+    int airGo = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        level = this;
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_air_value2);
         final WatchViewStub stub = (WatchViewStub) findViewById(R.id.watch_view_stub);
@@ -28,7 +31,6 @@ public class AirValueActivity extends Activity {
             @Override
             public void onLayoutInflated(WatchViewStub stub) {
                 mTextView = (TextView) stub.findViewById(R.id.text);
-
 
 
                 scale[0][0] = (RelativeLayout) stub.findViewById(R.id.Grid1a);
@@ -46,9 +48,14 @@ public class AirValueActivity extends Activity {
                 scale[2][2] = (RelativeLayout) stub.findViewById(R.id.Grid3c);
                 scale[2][3] = (RelativeLayout) stub.findViewById(R.id.Grid3d);
                 scale[2][4] = (RelativeLayout) stub.findViewById(R.id.Grid3e);
+                scale[3][0] = (RelativeLayout) stub.findViewById(R.id.Grid4a);
+                scale[3][1] = (RelativeLayout) stub.findViewById(R.id.Grid4b);
+                scale[3][2] = (RelativeLayout) stub.findViewById(R.id.Grid4c);
+                scale[3][3] = (RelativeLayout) stub.findViewById(R.id.Grid4d);
+                scale[3][4] = (RelativeLayout) stub.findViewById(R.id.Grid4e);
 
 
-                for (int n = 0; n < 3; n++) {
+                for (int n = 0; n < 4; n++) {
                     for (int k = 0; k < levelScale; k++) {
                         scale[n][k].setBackgroundColor(Color.rgb(0, 0, 0));
                     }
@@ -59,9 +66,9 @@ public class AirValueActivity extends Activity {
                 cloudView.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
+                        AirActivity.num.finish();
                         intent = new Intent(AirValueActivity.this, AirActivity.class);
                         startActivity(intent);
-                        //finish();
                     }
 
                 });

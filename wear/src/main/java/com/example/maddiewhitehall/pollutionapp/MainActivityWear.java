@@ -1,6 +1,8 @@
 package com.example.maddiewhitehall.pollutionapp;
 
 import android.app.Activity;
+import android.app.FragmentManager;
+import android.app.FragmentTransaction;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
@@ -15,6 +17,7 @@ public class MainActivityWear extends Activity {
     private TextView mTextView;
     private ImageButton airButton, trafficButton, soundButton, buildingButton;
     private Intent intent;
+    public static int air = 0;
     int soundStatus = Color.rgb(0,153,0), //green
             airStatus = Color.rgb(0,153,0), //green
             buildStatus = Color.rgb(255,0,0), //red
@@ -25,6 +28,7 @@ public class MainActivityWear extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_activity_wear);
         final WatchViewStub stub = (WatchViewStub) findViewById(R.id.watch_view_stub);
+
         stub.setOnLayoutInflatedListener(new WatchViewStub.OnLayoutInflatedListener() {
             @Override
             public void onLayoutInflated(WatchViewStub stub) {

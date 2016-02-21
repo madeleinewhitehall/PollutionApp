@@ -16,13 +16,15 @@ public class AirActivity extends Activity {
     private TextView view[]= {a,b,c,d,e};
     private ImageButton buttonBackOne, buttonBackTwo, cloudView;
     private Intent intentBack, intentValue, intentAir;
-    int airRun = 0;
+    public static Activity num;
+    //int airRun = 0;
     Float incomingAir[]={3.12f,0.23522f,3.44f,2.3f,0.6f};
     CharSequence airValues[]={"","","","",""};
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        num = this;
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_air);
         final WatchViewStub stub = (WatchViewStub) findViewById(R.id.watch_view_stub);
@@ -30,18 +32,6 @@ public class AirActivity extends Activity {
             @Override
             public void onLayoutInflated(WatchViewStub stub) {
                 mTextView = (TextView) stub.findViewById(R.id.text);
-
-                /*buttonBackTwo = (ImageButton) stub.findViewById(R.id.backButtonScale);
-                buttonBackTwo.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        System.out.print("working");
-                        intentBack = new Intent(AirActivity.this, MainActivityWear.class);
-                        startActivity(intentBack);
-                        //finish();
-                    }
-                });*/
-
 
                 for(int j=0;j<5;j++){
                     airValues[j]=Float.toString(incomingAir[j]);
@@ -62,9 +52,12 @@ public class AirActivity extends Activity {
                     @Override
 
                    public void onClick (View v) {
+                        if(MainActivityWear.air==1){
+                            AirValueActivity.level.finish();
+                        }
                         intentValue = new Intent(AirActivity.this, AirValueActivity.class);
                         startActivity(intentValue);
-                        //finish();
+                        MainActivityWear.air = 1;
                     }
                 });
             }
